@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('money-bg.jpg') center center / cover no-repeat fixed;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* przyciemniamy tło, żeby tekst był widoczny */
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px 25px;
+  border-radius: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 0 20px #000;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #777;
+  margin-bottom: 18px;
+}
+
+.nick {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.verified {
+  color: #00ffcc;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+.tagline {
+  font-size: 0.95em;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.icons a {
+  font-size: 1.4em;
+  margin: 0 8px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.icons a:hover {
+  color: #00ffff;
+  transform: scale(1.2);
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.footer {
+  margin-top: 22px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.85em;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+/* --- ANIMACJE I EFEKTY OLDMONEY DARK --- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card {
+  animation: fadeInUp 1.2s ease-out both;
+}
+
+.avatar:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.footer a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.footer a:hover {
+  color: #00ffcc;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
+}
+
+body::before {
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.audio-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(74, 93, 35, 0.85); /* bardziej intensywna zgniła zieleń */
+  border: 1px solid rgba(129, 165, 82, 0.6); /* oliwkowy outline */
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ddeac7;
+  font-size: 1.1em;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.audio-controls input[type="range"] {
+  width: 100px;
+  accent-color: #a2b88b; /* kolor suwaka – jasna zieleń */
+}
+
+.audio-controls i {
+  cursor: pointer;
+  font-size: 1.3em;
+  transition: transform 0.2s ease;
+}
+
+.audio-controls i:hover {
+  transform: scale(1.15);
+}
+
